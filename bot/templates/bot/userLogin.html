@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if request.user.is_authenticated %}Logged In{% else %}Not Logged In{% endif %}</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+     &nbsp;
+      &nbsp;
+</head>
+<body class="{% if request.user.is_authenticated %}logged-in{% else %}logged-out{% endif %}">
+ &nbsp;
+{% if request.user.is_authenticated %}
+	
+    
+    {% if request.user.first_name or request.user.last_name %}
+        <h1>{{ request.user.first_name }} {{ request.user.last_name }}
+        &nbsp;
+        &nbsp;
+        
+        </h1>
+        {% if request.user.profile.account_verified %} (verified) {% else %} (unverified) {% endif %}
+         &nbsp;
+         &nbsp;
+         &nbsp;
+		<table border="1", style="float: left;">
+			<th>Last Command</th>
+			<th>Hour and Date</th> 
+			{% for c in cronology %}
+			<tr>
+	    		<td>{{ c.command }}</td>
+	    		<td>{{ c.date }}</td>
+	  		</tr>
+			{% endfor %}
+		</table>
+		<table border="1", style="float: left;">
+			<th>Name of preference</th>
+			<th>Address</th>
+			<th>Latitude</th>
+			<th>Longitude</th> 
+			{% for p in preferences %}
+			<tr>
+	    		<td>{{ p.label }}</td>
+	    		<td>{{ p.address }}</td>
+	    		<td>{{ p.lat }}</td>
+	    		<td>{{ p.lon }}</td>
+	  		</tr>
+			{% endfor %}
+		</table>
+	{% else %}
+        {{ request.user.username }}
+    {% endif %}
+    
+ 
+{% else %}
+    <a href="/accounts/login/" class="pull-right">Login</a>
+{% endif %}
+<a href="/accounts/logout/" class="pull-right">
+    <button type="button">Logout</button>
+    &nbsp;
+    &nbsp;
+    </a>
+</body>
+</html>
