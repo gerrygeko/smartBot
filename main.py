@@ -37,7 +37,7 @@ from numpy import choose
 
 
 
-TOKEN = "326681466:AAF-FhP762y8CwaxIKsGrB7MIQUXRZZoZKo"
+TOKEN = "343706215:AAEaTYl_qXHsPxKMwC5rXRnrnESKEuThT2Y"
 gmaps = googlemaps.Client(key='AIzaSyCHw4CGzrZOpOleKM3KCPPMI7jJV_MDkDI')
 URL = "https://api.telegram.org/bot{}/".format(TOKEN)
 WEBAPP = "https://enigmatic-woodland-33608.herokuapp.com//accounts/login"
