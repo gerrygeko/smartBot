@@ -98,12 +98,7 @@ def location(bot, update):
     user = User.objects.get(chat_id=update.message.chat_id)
     User.objects.filter(chat_id=update.message.chat_id).update(lastCommand="parking")
     createCronology(bot, update, user)
-    r = urlopen(urld)
-    print("------------------------------------------------------------------")
-    print(r)
-    print("------------------------------------------------------------------")
-    
-#    
+    r = urllib.request.urlopen(urld) 
     data = json.loads(r.read().decode(r.info().get_param('charset') or 'utf-8'))
     closestParkings = calculate_parkings_distance(bot, update, data['features']);
     getDecoratedMap(bot, update, closestParkings, data['features'])
