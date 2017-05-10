@@ -30,7 +30,7 @@ from array import array
 from django.core.management.base import BaseCommand, CommandError
 from django.conf import settings
 from numpy import choose
-from urllib.request import urlopen
+#from urllib.request import urlopen
 #from smartBot.bot.models import UserAssociation
 #from django.contrib.sessions.models import Session
 #from smartBotWebApp.login.models import User as Login
